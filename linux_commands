@@ -1,3 +1,6 @@
+======================================================================
+              LIST OF ALL LINUX COMMANDS
+======================================================================
 
 ls -l
 ls -r (reverse) 
@@ -148,9 +151,7 @@ BRANCHING
 git branch -a (displays all the branches we have)
 
 git branch subam (creates a new branch named "subham")
-
-git branch -a (check if the branch is created)
-
+git branch -a (check if the branch is created) 
 git checkout subam (switches from "master" to "subam")
 
 DO SOME CHANGES IN YOUR PYTHON FILE
