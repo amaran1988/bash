@@ -1,0 +1,53 @@
+#!/bin/bash
+
+clear
+
+read -p "What's your name buddy?  " name
+
+
+echo "Oh Hi $name"
+
+
+read -p "What's your age?  " age
+
+
+if [ $age -ge 16 ] 
+then
+	echo "You can drive buddy"
+
+elif [ $age -eq 15 ] 
+then
+	echo "You can drive next year"
+
+else
+	echo "You can't drive Yo!!!"
+fi
+
+
+if [ $age -eq 30 ]
+then
+	echo "You were born at the right time buddy"
+fi
+
+
+if [ $age -ge 45 ] 
+then
+	echo "You have to retire bro"
+else
+	echo "You are young, you can work a bit more"
+fi
+
+
+if [ $age -gt 20 -a $age -lt 40 ]; then
+	echo "Your age is between 20 and 40. Wow"
+fi
+
+if [ $age -eq 20 -o $age -eq 40 ]; then
+	echo "Your age is a magical number."
+fi
+
+cat<<END
+# Create a sample directory but first check whether it exists
+[-d sample_dir] || mkdir sample_dir
+END
+

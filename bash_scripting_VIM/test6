@@ -1,0 +1,22 @@
+#!/bin/bash
+
+read -p "Enter a valid number: " num
+
+pat="^[0-9]{8}$" # This is a regular experession regex
+
+if [[ $num =~ $pat ]]
+then
+	echo "$num is valid"
+else 
+	echo "$num is not valid"
+fi
+
+
+read -sp "Enter the secret code" secret
+
+if [ "$secret" == "password" ]; then
+	echo "Enter"
+else
+	echo "Wrong password"
+fi
+

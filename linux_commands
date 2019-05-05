@@ -1,0 +1,312 @@
+
+ls -l
+ls -r (reverse) 
+ls -p (with dir)
+ls -s (size)
+
+rm -rf **anything-you-wanna-remove** 
+
+mv file1 file2 (to rename file1 to file2)
+
+mv /home/amar/file.txt /home/amar/dir/ (to move file.txt to dir directory)
+
+cal (To run calender in the terminal)
+
+sudo dpkg -i [***.deb] 
+
+sudo apt-get [**package**]
+
+sudo apt-cache policy **package**
+
+sudo switch -i [***.deb]
+
+su ( switch user )
+
+nano [**file-to-write**]
+
+sudo chown  user:group **filename**
+
+sudo chmod 664 **filename**  (rw-rw-r but 777 is rwx-rwx-rwx which is vulnerable)
+
+sudo chown user:group -R ./mydir (to change the ownership of the directory and the files in it)
+
+sudo chmod 664 -R **Directory name** (The R is the recursive function)
+
+If your terminal says "There are stopped jobs" when you try to exit then there are some programs
+running in the background. SO first check what jobs are running using the command -> 'jobs'. Bring it to the 
+foreground using the command -> 'fg [n]' and kill the process if you want. So kill all these processes and 
+then exit your terminal. Even if you exit your terminal without killing the processes it will still get automatically killed. 
+
+firefox <pdf file> (this will open your pdf file in the browser)
+
+find **Directory** -type f -iname "*.extension" (we use iname for case insensitivity)
+
+find **Directory** -type f -not -iname "*.extension" (returns everything else except that extension) 
+
+find **Directory** -type f -iname "file*"
+
+find **Directory** -type f -perm 0664 (using permission for the file)
+
+find **Directory** -size -1M (finding files less than 1 MB size)
+
+find **Directory** -maxdepth 1 -type f -iname '*.conf' (This is to only give the filename and reduce recursiveness)
+
+ 
+find **Directory** -maxdepth 1 -type f -iname '*.extension' -size +2k  (This command allows to search for files more than 2KB size with that particular extension with only the file name)
+
+
+grep  -n -i  **one-you-wanna-find**   **filename**  (-i is case insensitivity, -n is the line number)  
+
+grep  -i  **one-you-wanna-find**   ./*  (-i is case insensitivity, everyfile in that folder)
+
+
+find . -type f -iname "*.php" -exec grep -n -i "function" {} +      (using exec we can combine find and grep to get the word function from only php extension and not other extensions, the curly braces and the + sign are to close the exec command)
+
+ls -l > f.txt (moves the result to the file f.txt, this does not print on screen)
+
+ls -l | tee f.txt (moves the result to f.txt but also prints on the screen)
+
+ps aux | grep "the-one-you-want" (you get the PID of the process)
+
+kill -9 PID 
+
+killall "the-one-you-wanna-remove"
+
+===========================================================================================================
+
+ELASTICSEARCH
+
+============================================================================================================
+CRONTAB
+
+crontab -e, tar -zcf /var/backups/home.tgz /home/ (archives a backup of all the files in the home directory)
+
+sudo crontab -e, apt-get upgrade -y
+
+============================================================================================================
+
+GIT
+
+Create a new project in Python. If you want to connect to GIT then:
+
+1. Go to the directory where you have the file
+
+git init
+
+git remote add origin **the url for the git repository found in github**
+
+git config --global user.name "Amaran"
+
+git config --global user.email amardeep.chalmersuniversity@gmail.com
+
+git --version
+
+git config --list
+
+touch .gitignore (to create a personal directory within the git to prevent visibility of certain files we need, so these files would be in this directory)
+
+mv **files-to-protect** .gitignore
+
+git status (to know what you are tracking)
+
+git add **filename**
+
+git add -A (to add all the files)
+
+git reset (resets all the tracking files in the repository)
+
+
+git add -A (this would also include the gitignore files as well)
+
+git commit -m  **"the message"**
+
+git log (to check the log of commits)
+
+git branch -a
+
+git remote -v
+
+====================================================================================
+MAKING A CHANGE IN THE FILE - FIRST MAKE THE CHANGE IN YOUR PYTHON FILE FOR EX
+
+git diff (gives the changes you made)
+
+git status (check that it is modified and not added locally)
+
+git add -A (adds the file)
+
+git commit -m "Changes made" (commit the change with a message)
+
+git pull origin master (if you already have it in your repository then first pull it)
+
+git push origin master (then push it with the changes you made to the repository)
+
+======================================================================================
+
+BRANCHING
+
+git branch -a (displays all the branches we have)
+
+git branch subam (creates a new branch named "subham")
+
+git branch -a (check if the branch is created)
+
+git checkout subam (switches from "master" to "subam")
+
+DO SOME CHANGES IN YOUR PYTHON FILE
+
+git status 
+
+git add -A
+
+git commit -m "changes added to subam"
+
+git push -u origin subam (pushes the commits to the repository)
+
+
+NOW WE HAVE THE SAME FILE BUT TWO DIFFERENT VERSIONS IN TWO BRANCHES
+=======================================================================================
+
+MERGING
+
+git checkout master
+
+git branch --merged (to check any branches merged with the master branch)
+
+git merge subam (merges the changes from subam to the master)
+
+git branch --merged
+
+git push origin master (pushes the local changes in master to the repository)
+
+==================================================================
+
+DELETING a branch
+
+git branch -d subam
+
+git push origin --delete subam
+
+===================================================================
+
+OTHER INTERMEDIATE COMMANDS 
+
+
+echo "Hello World"
+
+date
+
+man echo (returns the manual for echo command)
+
+uniq -c "star.txt" (notifies how many repeated lines are there in the text file)
+
+chmod u=rwx,g=rx,o=r star.txt  (This will also work instead of using the combination 4-2-1)
+
+============================================================================================
+
+ALIAS FUNCTION
+
+alias ec="echo" (to define the short form of 'echo' function as 'ec')
+
+# However the above function 'ec' works as an alias to 'echo' only for that terminal session and 
+# not when we quit and start another session. For this we need to save the alias in .bashrc file
+# For that we need to do the following: 
+
+cat ~/.bashrc (check the file)
+
+nano ~/.bashrc (open the bashrc file and write the command -> alias ec="echo", save it and exit)
+
+source ~/.bashrc (this function refreshes the bashrc file)
+
+# Now the alias of 'echo' which is 'ec' becomes permanent. Very useful for git commands keep in mind
+
+unalias ec  (removes the alias for that session. Hence we need to remove the command from the bashrc to remove it permanently)
+
+==============================================================================================
+
+whereis python (returns the directory where the python packages exists)
+
+
+All services are found in /etc/init.d/ -> many services  
+
+
+df -h (disk space and usage information in human readable format)
+
+du -h (the memory usage of all the files in the system)
+
+du -h -s *.txt (returns how many txt files in that directory and its memory usage in human readable format)
+
+
+passwd (to change your old password to new password)
+
+wget <URL> (to get information about that url and its downloading status etc.)
+
+who  (returns the user details)
+
+
+ls -l | lolcat (this is a very impressive function since it gives colors to files - check it out it's very cool)
+
+
+telnet towel.blinkenlights.nl (star wars movie in terminal)
+
+
+cmatrix (creates a matrix standby in the terminal - pretty cool!!!)
+
+yes <anything> (creates a while loop of the input to infinity until system crashes)
+
+
+=====================================================================================
+Installing and using vnStat and vnStati for Monitoring Network Traffic in Ubuntu
+=====================================================================================
+
+sudo apt-get install vnstat
+sudo apt-get install vnstati
+
+ifconfig  (lists all the interfaces we use)
+
+vnstat -u -i ens33  (To activate the monitoring of that interface named ens33. It can be different name for us)
+
+
+vnstat --iflist (To view all networks available in the system)
+
+Once the above steps are complete, we can now start the vnStat daemon. To do this, we use the following command:
+
+sudo service vnstat start
+
+ps -f | grep vnst
+
+vnstat  (To display the network usage of added interfaces)
+
+vnstat -i ens33   (To be more specific on which network interface)
+
+vnstat -h -i ens33 (hourly usage)
+
+vnstat -m -i ens33 (monthly usage)
+
+vnstat -w -i ens33 (weekly usage)
+
+vnstat -l -i ens33 (live usage)
+
+speedtest-cli (to check your internet speed)
+
+whereami ( returns the latitude and longitude of your location)
+
+whereami -f human (in human readable format)
+
+whereami -r (the raw data)
+
+==============================
+CURL tutorial
+==============================
+
+curl <URL>  (shows all the contents in that url)
+curl -i <url> (shows all the contents and other details such as headers of that url)
+curl -o <filename> <URL> (Downloads the contents in that URL to the file)
+curl -O <URL> (Downloads the contents in a file. Can even download images in this manner)
+curl --data <data> <URL> (to send the data to that url if posting permission is given)
+
+
+
+
+
+
