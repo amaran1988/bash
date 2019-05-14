@@ -36,3 +36,5 @@ num4=4
 echo "scale=3;sqrt($num4)"| bc -l
 
 echo "scale=3; 3^4" | bc -l
+
+
